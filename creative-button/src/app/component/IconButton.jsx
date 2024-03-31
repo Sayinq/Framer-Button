@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
-const Magnetic = ({ children, distance = 6 }) => {
+const Magnetic = ({ children, distance = 4 }) => {
     const magnetic = useRef(null);
 
     useEffect(() => {
@@ -54,14 +54,10 @@ const TextMagnet = ({ children, distance = 8 }) => {
     return React.cloneElement(children, { ref: magnetic });
 };
 
-const Button = ({ 
-    main, 
-    number,
-    displayOption,
+const IconButton = ({ 
+    icon,
     bgColor,
     borderColor,
-    textColor,
-    hoverTextColor,
     overlayColor,
 }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -70,15 +66,14 @@ const Button = ({
         <Magnetic>
             <motion.div
                 style={{ 
+                    backgroundColor: `${bgColor}`,
                     border: `1.5px solid ${borderColor}`, 
-                    color: isHovered ? hoverTextColor : textColor,
-                    backgroundColor: `${bgColor}` 
                 }}
-
                 className="relative flex justify-center items-center w-fit h-[4.75em] max-w-[200px] text-[1em] border-[1.5px] rounded-[2.125em] p-0 transition-colors duration-500 ease-in-out cursor-pointer overflow-hidden"
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
                 data-cursor="-inverse"
+                data-cursor-stick=""
             >
                 <motion.div
                     initial={{ y: '-100%' }}
@@ -87,18 +82,18 @@ const Button = ({
                     transition={{ duration: 0.25, delay: 0.15, ease: 'easeInOut' }}
                     style={{ 
                         backgroundColor: `${overlayColor}`,
-                        display: displayOption === "hidden" ? "none" : "flex",
                     }}
                     className="absolute top-0 left-0 w-full h-full rounded-[2.125em]"
                 />
                 <TextMagnet>
-                    <div data-cursor-stick="" className="relative flex justify-center items-center w-fit h-full px-12 select-none">
-                        <div className="w-fit h-fit relative">
-                            <motion.span className="w-full h-full text-lg font-normal">
-                                {main}
-                            </motion.span>
-                            <div className="absolute top-[5%] right-[-10%] transform translate-x-1/2 -translate-y-1/2">
-                                <span className="text-xs text-[#C2C2C2]">{number}</span>
+                    <div className="relative flex justify-center items-center w-full h-full px-8 select-none">
+                        <div className="w-full h-fit relative">
+                            <div className="w-full h-full relative">
+                                <img
+                                    src={icon}
+                                    alt=""
+                                    className="w-[25px] h-[25px]"
+                                />
                             </div>
                         </div>
                     </div>
@@ -108,4 +103,4 @@ const Button = ({
     );
 };
 
-export default Button;
+export default IconButton;
