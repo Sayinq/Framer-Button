@@ -25,7 +25,8 @@ export default function Home() {
 
   return (
     <main className="overflow-hidden" ref={containerRef}>
-      <section className="flex justify-center items-center w-screen h-screen">
+      <section className="flex flex-col justify-center items-center w-screen h-screen gap-y-12">
+        <h2 className="text-2xl font-medium text-[#141517]">Customizable Buttons</h2>
         <div className="flex lg:flex-row flex-col justify-center items-center w-full gap-4">
           <IconButton
             icon="/menu.svg"
