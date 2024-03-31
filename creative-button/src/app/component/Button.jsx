@@ -63,6 +63,7 @@ const Button = ({
     textColor,
     hoverTextColor,
     overlayColor,
+    cursorOption,
 }) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -78,7 +79,7 @@ const Button = ({
                 className="relative flex justify-center items-center w-fit h-[4.75em] max-w-[200px] text-[1em] border-[1.5px] rounded-[2.125em] p-0 transition-colors duration-500 ease-in-out cursor-pointer overflow-hidden"
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
-                data-cursor="-inverse"
+                data-cursor={cursorOption}
             >
                 <motion.div
                     initial={{ y: '-100%' }}

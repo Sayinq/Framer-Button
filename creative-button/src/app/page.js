@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="overflow-hidden" ref={containerRef}>
+    <main className="overflow-hidden relative" ref={containerRef}>
       <section className="flex flex-col justify-center items-center w-screen h-screen gap-y-12">
         <h2 className="text-2xl font-medium text-[#141517]">Customizable Buttons</h2>
         <div className="flex lg:flex-row flex-col justify-center items-center w-full gap-4">
@@ -32,7 +32,7 @@ export default function Home() {
             icon="/menu.svg"
             bgColor=""
             borderColor="rgb(26, 26, 26, 0.1)"
-            overlayColor="#d160c8"
+            overlayColor="#ADD8E6"
           />
           <Button 
             main="All" // Main text
@@ -43,6 +43,7 @@ export default function Home() {
             textColor="#F0EFEF" // Base text color
             hoverTextColor="#F0EFEF" // Color when text is hovered
             overlayColor=""
+            cursorOption="-inverse"
           />
           <Button 
             main="Design" // Main text
@@ -51,8 +52,9 @@ export default function Home() {
             bgColor="" // Whether or not you want a base bg color, usually used with a hidden overlay
             borderColor="rgb(26, 26, 26, 0.1)" // RGB value for opacity control 
             textColor="#1a1a1a" // Base text color
-            hoverTextColor="#F0EFEF" // Color when text is hovered
-            overlayColor="#d160c8"
+            hoverTextColor="#a6a6ed" // Color when text is hovered
+            overlayColor="#E6E6FA"
+            cursorOption=""
           />
           <Button 
             main="Development" // Main text
@@ -62,7 +64,8 @@ export default function Home() {
             borderColor="rgb(26, 26, 26, 0.1)" // RGB value for opacity control 
             textColor="#1a1a1a" // Base text color
             hoverTextColor="#F0EFEF" // Color when text is hovered
-            overlayColor="#d160c8"
+            overlayColor="#00758F"
+            cursorOption=""
           />
         </div>
       </section>
